@@ -21,13 +21,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 @Configuration
 @SuppressWarnings("deprecation")
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class AppWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UserDetailsService userDetailsService;
 
-	@Bean
 	@Override
+	@Bean(name = "authenticationManager")
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	@Bean
-	private PasswordEncoder passwordEncoder() {
+	public PasswordEncoder passwordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
 	

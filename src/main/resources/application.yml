@@ -1,6 +1,16 @@
+server:
+  port: 8888
+
+security:
+  oauth2:
+    authorization:
+      token-key-access: permitAll() 
+      check-token-access: isAuthenticated()
 
 spring:
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
+      
+      
